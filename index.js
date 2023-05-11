@@ -27,7 +27,7 @@ app.use("/uploads", express.static("uploads"));
 //avoid cors deployment problem, 
 //so we allow web pages from making requests to a different domain.
 app.use(function (req, res, next) {
-    res.header('Access-Control-Allow-Origin', 'http://your-react-app-domain.com');
+    res.header('Access-Control-Allow-Origin', 'https://bdev-pokemon.onrender.com');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type');
     next();
