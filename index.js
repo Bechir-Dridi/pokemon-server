@@ -18,7 +18,7 @@ const wallPaperRouter = require("./routers/wallPaperRouter.js")
 app.use(express.json());
 app.use(cookieParser())
 app.use(cors(
-    { origin: ["http://localhost:3000"], credentials: true, }
+    { origin: ["http://localhost:3000", "https://bdev-pokemon.onrender.com"], credentials: true, } //server accepts requests from loclahost 3000 and static site
 ))
 //make uploads folder static =>accessible
 app.use("/uploads", express.static("uploads"));
