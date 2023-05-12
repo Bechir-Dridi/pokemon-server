@@ -62,7 +62,8 @@ router.post("/login", async (req, res) => {
         const token = jwt.sign({ user: savedUser }, process.env.JWT_SECRET)
         //console.log(`token: ${token}`);
         //send token:
-        res.cookie("token", token, { httpOnly: true }).json({ status: "you are logged in" });
+        res.cookie("token", token, { httpOnly: true, secure: true, sameSite: "none" })
+            .json({ status: "you are logged in" });
     }
     catch (err) {
         console.log(`userRouter post error: ${err}`)
@@ -72,7 +73,8 @@ router.post("/login", async (req, res) => {
 
 //........ logout ........
 router.get("/logout", (req, res) => {
-    res.cookie("token", "", { httpOnly: true, expires: new Date(0) }).json({ status: "you are logged out" });
+    res.cookie("token", "", { httpOnly: true, secure: true, sameSite: "none", expires: new Date(0) })
+        .json({ status: "you are logged out" });
 })
 
 //........ Get User ........
